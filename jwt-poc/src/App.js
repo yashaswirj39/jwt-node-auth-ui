@@ -11,10 +11,13 @@ class App extends Component {
   }
 
   RenderApi = () => {
-    fetch("http://192.168.0.49:3000/api/v1", {
-      mode: 'no-cors'
+    fetch("http://192.168.0.49:3000/api/v1/token", {
+      credentials: 'same-origin'
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        return response.json();
+      })
       .then(resp => {
         console.log("the result string:", resp);
       })
